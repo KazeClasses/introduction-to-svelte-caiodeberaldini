@@ -2,6 +2,14 @@
 	// @ts-ignore
 	import { scaleLinear } from 'd3-scale';
 
+	import Hello from '$lib/components/Hello.svelte';
+    import Navbar from '$lib/components/Navbar.svelte';
+    let name = $state('');
+    let count = $state(0);
+    function handleClick() {
+        count += 1;
+    }
+
 	const points = [
 		{ year: 1990, birthrate: 16.7 },
 		{ year: 1995, birthrate: 14.6 },
@@ -83,6 +91,16 @@
 	</svg>
 </div>
 <input bind:value={user_birthrate} type="number" placeholder="Enter the 2000's birthrate"/>
+
+<!-- <input bind:value={name} placeholder="Enter your name" />
+<button onclick={handleClick}>
+    Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+{#if name != '' && count < 10}
+    <h1 class="text-4xl text-center text-blue-500">Hello {name}!</h1>
+{:else if count >= 10}
+    <p>You are annoying</p> 
+{/if} -->
 
 <style>
 	h2 {
